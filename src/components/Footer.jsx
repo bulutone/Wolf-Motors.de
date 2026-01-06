@@ -53,13 +53,18 @@ export default function Footer() {
 
             <div className="container" style={{
                 marginTop: '60px',
-                paddingTop: '20px',
+                paddingTop: '30px',
                 borderTop: '1px solid var(--border)',
                 textAlign: 'center',
                 fontSize: '0.875rem',
                 color: 'var(--text-dim)'
             }}>
-                <p>&copy; {new Date().getFullYear()} Wolf Motors. Alle Rechte vorbehalten. Website by Antigravity.</p>
+                <p style={{ marginBottom: '0.5rem' }}>&copy; {new Date().getFullYear()} Wolf Motors. Alle Rechte vorbehalten.</p>
+                <p>
+                    <a href="https://digihandel.de" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-muted)', fontWeight: 500 }}>
+                        Digihandel.de
+                    </a> tarafından sevgiyle kodlandı.
+                </p>
             </div>
         </footer>
     );

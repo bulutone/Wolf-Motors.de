@@ -1,15 +1,28 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+
+  // Handle smooth scroll for anchor links
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [location]);
 
   return (
     <header className="glass-header">
       <div className="container flex justify-between align-center" style={{ height: '80px' }}>
         <Link to="/" className="flex align-center" style={{ gap: '12px' }}>
-          <img src="/logo.png" alt="Wolf Motors" style={{ height: '45px', filter: 'brightness(0) invert(1)' }} />
+          <img src="/logo.png" alt="Wolf Motors" style={{ height: '45px' }} />
           <span style={{
             fontSize: '1.25rem',
             fontWeight: 700,

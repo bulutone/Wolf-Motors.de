@@ -73,14 +73,46 @@ export default function Home() {
 
                     <div className="grid-3" style={{ gap: '2rem' }}>
                         {featuredCars.map((car, i) => (
-                            <div key={i} className="card" style={{ padding: '0', overflow: 'hidden', border: 'none', boxShadow: 'var(--shadow-md)' }}>
+                            <div key={i} className="card" style={{ padding: '0', overflow: 'hidden', border: 'none', boxShadow: 'var(--shadow-md)', position: 'relative' }}>
                                 <div style={{ position: 'relative' }}>
                                     <img src={car.img} alt={car.name} style={{ width: '100%', height: '220px', objectFit: 'cover' }} />
-                                    <div style={{ position: 'absolute', top: '1rem', right: '1rem', background: 'var(--accent)', color: 'white', padding: '0.4rem 0.8rem', borderRadius: 'var(--radius-sm)', fontWeight: 700 }}>
+                                    {car.sold && (
+                                        <div style={{
+                                            position: 'absolute',
+                                            top: '50%',
+                                            left: '50%',
+                                            transform: 'translate(-50%, -50%) rotate(-15deg)',
+                                            background: 'rgba(239, 68, 68, 0.9)',
+                                            color: 'white',
+                                            padding: '0.5rem 2rem',
+                                            borderRadius: '4px',
+                                            fontWeight: 800,
+                                            fontSize: '1.5rem',
+                                            letterSpacing: '0.1em',
+                                            border: '3px solid white',
+                                            boxShadow: '0 4px 10px rgba(0,0,0,0.3)',
+                                            zIndex: 2,
+                                            pointerEvents: 'none',
+                                            textTransform: 'uppercase'
+                                        }}>
+                                            Verkauft
+                                        </div>
+                                    )}
+                                    <div style={{
+                                        position: 'absolute',
+                                        top: '1rem',
+                                        right: '1rem',
+                                        background: car.sold ? '#64748b' : 'var(--accent)',
+                                        color: 'white',
+                                        padding: '0.4rem 0.8rem',
+                                        borderRadius: 'var(--radius-sm)',
+                                        fontWeight: 700,
+                                        opacity: car.sold ? 0.8 : 1
+                                    }}>
                                         {car.price}
                                     </div>
                                 </div>
-                                <div style={{ padding: '1.5rem' }}>
+                                <div style={{ padding: '1.5rem', opacity: car.sold ? 0.7 : 1 }}>
                                     <h3 style={{ marginBottom: '1rem', fontSize: '1.1rem' }}>{car.name}</h3>
                                     <div className="grid" style={{ gridTemplateColumns: '1fr 1fr', gap: '0.75rem', color: 'var(--text-muted)', fontSize: '0.85rem', marginBottom: '0.5rem' }}>
                                         <div className="flex align-center" style={{ gap: '6px' }}><Clock size={14} /> EZ {car.year}</div>
