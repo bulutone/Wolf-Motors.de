@@ -1,10 +1,11 @@
-import { Car, Shield, CheckCircle, Clock, Wallet, FileText, MapPin, Phone, Mail, ArrowRight, ExternalLink, Settings, RefreshCw, Send } from 'lucide-react';
+import { Car, Shield, CheckCircle, Clock, Wallet, FileText, MapPin, Phone, Mail, ArrowRight, ExternalLink, Settings, RefreshCw, Send, MessageCircle } from 'lucide-react';
+import WhatsAppButton from '../components/WhatsAppButton';
 
 export default function Home() {
     const featuredCars = [
-        { name: "Toyota Yaris 1.33 Dual-VVT-i", price: "5.900 €", year: "2012", km: "125.000 km", fuel: "Benzin", img: "/yaris.png" },
-        { name: "BMW X1 xDrive20d", price: "12.450 €", year: "2014", km: "158.000 km", fuel: "Diesel", img: "/bmw-x1.png" },
-        { name: "VW Golf 5 R32 Look / Sammlerstück", price: "18.200 €", year: "2008", km: "85.000 km", fuel: "Benzin", img: "/golf5.png" }
+        { name: "Toyota Yaris 1.33 Dual-VVT-i", price: "5.900 €", year: "2012", km: "125.000 km", fuel: "Benzin", img: "/yaris.png", sold: true },
+        { name: "BMW X1 xDrive20d", price: "12.450 €", year: "2014", km: "158.000 km", fuel: "Diesel", img: "/bmw-x1.png", sold: true },
+        { name: "VW Golf 5 R32 Look / Sammlerstück", price: "18.200 €", year: "2008", km: "85.000 km", fuel: "Benzin", img: "/golf5.png", sold: true }
     ];
 
     const services = [
@@ -15,6 +16,8 @@ export default function Home() {
         { title: "Fahrzeugbewertung", desc: "Faire und marktgerechte Bewertung Ihres aktuellen Fahrzeugs in wenigen Minuten.", icon: <RefreshCw size={40} /> },
         { title: "Export-Service", desc: "Professionelle Abwicklung von Zollunterlagen und Überführungskennzeichen.", icon: <Send size={40} /> }
     ];
+
+    const waLink = "https://wa.me/491607713477?text=Hallo%20Wolf%20Motors%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eines%20Ihrer%20Fahrzeuge.";
 
     return (
         <main>
@@ -37,7 +40,7 @@ export default function Home() {
                         </p>
                         <div className="flex justify-center" style={{ gap: '1rem', flexWrap: 'wrap' }}>
                             <a href="#inventory" className="btn-primary">Aktueller Bestand</a>
-                            <a href="#contact" className="btn-secondary">Unverbindliche Beratung</a>
+                            <a href={waLink} target="_blank" rel="noopener noreferrer" className="btn-secondary">Unverbindliche Beratung</a>
                         </div>
                     </div>
                 </div>
@@ -82,16 +85,16 @@ export default function Home() {
                                             top: '50%',
                                             left: '50%',
                                             transform: 'translate(-50%, -50%) rotate(-15deg)',
-                                            background: 'rgba(239, 68, 68, 0.9)',
+                                            background: 'rgba(239, 68, 68, 0.95)',
                                             color: 'white',
-                                            padding: '0.5rem 2rem',
+                                            padding: '0.6rem 2.5rem',
                                             borderRadius: '4px',
-                                            fontWeight: 800,
-                                            fontSize: '1.5rem',
-                                            letterSpacing: '0.1em',
-                                            border: '3px solid white',
-                                            boxShadow: '0 4px 10px rgba(0,0,0,0.3)',
-                                            zIndex: 2,
+                                            fontWeight: 900,
+                                            fontSize: '1.75rem',
+                                            letterSpacing: '0.15em',
+                                            border: '4px solid white',
+                                            boxShadow: '0 8px 20px rgba(0,0,0,0.4)',
+                                            zIndex: 5,
                                             pointerEvents: 'none',
                                             textTransform: 'uppercase'
                                         }}>
@@ -194,53 +197,60 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Contact Section */}
+            {/* Contact Section - Updated to WhatsApp Only */}
             <section id="contact" className="section-padding">
                 <div className="container">
-                    <div className="grid-2" style={{ gap: '4rem' }}>
-                        <div>
-                            <h2 style={{ fontSize: '2.5rem', marginBottom: '2rem' }}>Jetzt Kontakt aufnehmen</h2>
-                            <p style={{ color: 'var(--text-muted)', marginBottom: '3rem' }}>
-                                Haben Sie Fragen zu einem Fahrzeug oder möchten Sie eine Probefahrt vereinbaren? Wir freuen uns auf Ihre Nachricht.
-                            </p>
+                    <div className="text-center mx-auto" style={{ maxWidth: '800px' }}>
+                        <h2 style={{ fontSize: '3rem', marginBottom: '2rem' }}>Kontaktieren Sie uns</h2>
+                        <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem', marginBottom: '4rem' }}>
+                            Haben Sie Fragen zu einem Fahrzeug oder möchten Sie eine Probefahrt vereinbaren?
+                            Für eine schnellstmögliche Antwort kontaktieren Sie uns bitte direkt per WhatsApp.
+                        </p>
 
-                            <div style={{ display: 'grid', gap: '2rem' }}>
-                                <div className="flex align-center" style={{ gap: '1rem' }}>
-                                    <div style={{ width: '50px', height: '50px', background: 'var(--accent-soft)', color: 'var(--accent)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><MapPin size={24} /></div>
-                                    <div>
-                                        <h5 style={{ fontWeight: 600 }}>Adresse</h5>
-                                        <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Borker Straße 113, 44534 Lünen</p>
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3rem' }}>
+                            <a
+                                href={waLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn-primary"
+                                style={{
+                                    padding: '1.5rem 4rem',
+                                    fontSize: '1.25rem',
+                                    backgroundColor: '#25D366',
+                                    boxShadow: '0 10px 30px rgba(37, 211, 102, 0.4)'
+                                }}
+                            >
+                                <MessageCircle size={28} /> Per WhatsApp schreiben
+                            </a>
+
+                            <div className="grid-3" style={{ width: '100%', gap: '2rem', marginTop: '2rem' }}>
+                                <div className="flex align-center flex-direction-column" style={{ gap: '1rem', flexDirection: 'column' }}>
+                                    <div style={{ width: '60px', height: '60px', background: 'var(--accent-soft)', color: 'var(--accent)', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><MapPin size={28} /></div>
+                                    <div className="text-center">
+                                        <h5 style={{ fontWeight: 700, marginBottom: '0.5rem' }}>Adresse</h5>
+                                        <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>Borker Straße 113, 44534 Lünen</p>
                                     </div>
                                 </div>
-                                <div className="flex align-center" style={{ gap: '1rem' }}>
-                                    <div style={{ width: '50px', height: '50px', background: 'var(--accent-soft)', color: 'var(--accent)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Phone size={24} /></div>
-                                    <div>
-                                        <h5 style={{ fontWeight: 600 }}>Telefon</h5>
-                                        <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>0160 7713477</p>
+                                <div className="flex align-center flex-direction-column" style={{ gap: '1rem', flexDirection: 'column' }}>
+                                    <div style={{ width: '60px', height: '60px', background: 'var(--accent-soft)', color: 'var(--accent)', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Phone size={28} /></div>
+                                    <div className="text-center">
+                                        <h5 style={{ fontWeight: 700, marginBottom: '0.5rem' }}>Telefon</h5>
+                                        <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>0160 7713477</p>
                                     </div>
                                 </div>
-                                <div className="flex align-center" style={{ gap: '1rem' }}>
-                                    <div style={{ width: '50px', height: '50px', background: 'var(--accent-soft)', color: 'var(--accent)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Mail size={24} /></div>
-                                    <div>
-                                        <h5 style={{ fontWeight: 600 }}>E-Mail</h5>
-                                        <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>info@wolf-motors.de</p>
+                                <div className="flex align-center flex-direction-column" style={{ gap: '1rem', flexDirection: 'column' }}>
+                                    <div style={{ width: '60px', height: '60px', background: 'var(--accent-soft)', color: 'var(--accent)', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Mail size={28} /></div>
+                                    <div className="text-center">
+                                        <h5 style={{ fontWeight: 700, marginBottom: '0.5rem' }}>E-Mail</h5>
+                                        <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>info@wolf-motors.de</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div className="card" style={{ background: 'var(--bg-deep)', border: 'none' }}>
-                            <h3 style={{ marginBottom: '1.5rem' }}>Online Anfrage</h3>
-                            <form className="grid" style={{ gap: '1.2rem' }}>
-                                <input type="text" placeholder="Name" className="btn-secondary" style={{ width: '100%', cursor: 'text', transform: 'none', background: 'white' }} />
-                                <input type="text" placeholder="E-Mail oder Telefon" className="btn-secondary" style={{ width: '100%', cursor: 'text', transform: 'none', background: 'white' }} />
-                                <textarea placeholder="Ihre Nachricht" rows="4" className="btn-secondary" style={{ width: '100%', cursor: 'text', transform: 'none', height: 'auto', background: 'white' }}></textarea>
-                                <button type="submit" className="btn-primary" style={{ width: '100%', justifyContent: 'center' }}>Nachricht senden</button>
-                            </form>
-                        </div>
                     </div>
                 </div>
             </section>
+            <WhatsAppButton />
         </main>
     );
 }

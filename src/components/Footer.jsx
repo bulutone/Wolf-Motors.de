@@ -61,9 +61,9 @@ export default function Footer() {
             }}>
                 <p style={{ marginBottom: '0.5rem' }}>&copy; {new Date().getFullYear()} Wolf Motors. Alle Rechte vorbehalten.</p>
                 <p>
-                    <a href="https://digihandel.de" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-muted)', fontWeight: 500 }}>
+                    Mit Liebe codiert von <a href="https://digihandel.de" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-muted)', fontWeight: 500 }}>
                         Digihandel.de
-                    </a> tarafından sevgiyle kodlandı.
+                    </a>.
                 </p>
             </div>
         </footer>
