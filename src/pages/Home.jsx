@@ -23,7 +23,7 @@ export default function Home() {
                 minHeight: '85vh',
                 display: 'flex',
                 alignItems: 'center',
-                background: 'linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.8)), url("https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&q=80&w=2073") center/cover no-repeat',
+                background: 'linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.7)), url("https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&q=80&w=1936") center/cover no-repeat',
             }}>
                 <div className="container">
                     <div className="animate-up text-center mx-auto" style={{ maxWidth: '900px' }}>
