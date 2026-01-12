@@ -169,29 +169,29 @@ button {
   display: inline-block;
 }
 
-/* Header Glass Effect - Now Dark Premium */
+/* Header Glass Effect - Now White Premium */
 .glass-header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(15, 23, 42, 0.95);
-  /* Deep Navy/Charcoal */
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  color: var(--text-main);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 .glass-header .nav-link {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-muted);
   font-weight: 500;
   transition: var(--transition);
 }
 
 .glass-header .nav-link:hover {
-  color: white;
+  color: var(--accent);
 }
 
 /* Symmetric Grid & Spacing */

@@ -22,13 +22,7 @@ export default function Header() {
     <header className="glass-header">
       <div className="container flex justify-between align-center" style={{ height: '80px' }}>
         <Link to="/" className="flex align-center" style={{ gap: '12px' }}>
-          <img src="/logo.png" alt="Wolf Motors" style={{ height: '45px' }} />
-          <span style={{
-            fontSize: '1.25rem',
-            fontWeight: 700,
-            letterSpacing: '0.08em',
-            color: 'white'
-          }}>WOLF MOTORS</span>
+          <img src="/logo.png" alt="Wolf Motors" style={{ height: '60px', objectFit: 'contain' }} />
         </Link>
 
         {/* Desktop Nav */}
@@ -50,7 +44,7 @@ export default function Header() {
             <Phone size={16} />
             <span className="hide-mobile">Rückruf anfordern</span>
           </a>
-          <button className="mobile-toggle" onClick={() => setIsOpen(!isOpen)} style={{ color: 'white' }}>
+          <button className="mobile-toggle" onClick={() => setIsOpen(!isOpen)} style={{ color: 'var(--text-main)' }}>
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
