@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
+import logo from '../assets/logo.png';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +23,7 @@ export default function Header() {
     <header className="glass-header">
       <div className="container flex justify-between align-center" style={{ height: '80px' }}>
         <Link to="/" className="flex align-center" style={{ gap: '12px' }}>
-          <img src="logo.png" alt="Wolf Motors" style={{ height: '60px', objectFit: 'contain' }} />
+          <img src={logo} alt="Wolf Motors" style={{ height: '60px', objectFit: 'contain' }} />
         </Link>
 
         {/* Desktop Nav */}
