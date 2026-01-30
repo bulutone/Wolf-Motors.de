@@ -22,7 +22,7 @@ export default function Header() {
     <header className="glass-header">
       <div className="container flex justify-between align-center" style={{ height: '80px' }}>
         <Link to="/" className="flex align-center" style={{ gap: '12px' }}>
-          <img src="/logo.png" alt="Wolf Motors" style={{ height: '60px', objectFit: 'contain' }} />
+          <img src="logo.png" alt="Wolf Motors" style={{ height: '60px', objectFit: 'contain' }} />
         </Link>
 
         {/* Desktop Nav */}
